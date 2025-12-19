@@ -1,0 +1,15 @@
+SW1/2 >
+enable
+configure terminal
+hostname SW1/ SW2
+no ip domain-lookup
+service password-encryption
+enable secret class
+line console 0
+password cisco
+login
+logging synchronous
+line vty 0 4
+password cisco
+login
+SW1/2(config)#banner motd $Onbevoegde toegang verboden$
