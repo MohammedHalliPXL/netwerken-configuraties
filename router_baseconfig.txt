@@ -1,0 +1,28 @@
+Router R1 >
+enable
+configure terminal
+hostname R1
+no ip domain-lookup
+enable secret class
+service password-encryption
+line console 0
+password cisco
+login
+logging synchronous
+line vty 0 4
+ password cisco
+login
+transport input ssh
+username admin secret Netacad123
+ip domain-name technova.local
+crypto key generate rsa 2048
+ip ssh version 2
+interface g0/0/0
+ ip address 192.168.10.1 255.255.255.240
+ ipv6 address 2001:db8:10::1/64
+ no shutdown
+interface g0/0/1
+ ip address 192.168.20.1 255.255.255.240
+ ipv6 address 2001:db8:20::1/64
+no shutdown
+R1(config)# banner motd $Welkom bij TechNova Solutions. Onbevoegde toegang verboden!$
