@@ -15,9 +15,9 @@ line console 0
 password cisco
 login
 logging synchronous
+username admin secret Admin123!
 line vty 0 4
-password cisco
-login
+login local
 transport input ssh
 end
 SW-DEV(config)#banner motd $Onbevoegde toegang verboden$
