@@ -15,9 +15,10 @@ interface range fa0/1-9
 line console 0
  password console
  login
+login synchronous
 username admin secret Admin123!
 line vty 0 4
- login local
- transport input ssh
+login local
+transport input ssh
 end
 SW-ADMIN(config)#banner motd $Onbevoegde toegang verboden$
