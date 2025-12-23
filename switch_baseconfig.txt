@@ -1,10 +1,16 @@
-SW1/2 >
 enable
 configure terminal
-hostname SW1/ SW2
+hostname SW-DEV
 no ip domain-lookup
 service password-encryption
 enable secret class
+ipv6 address 2001:db8:10::2/64
+ no shutdown
+ip address 192.168.10.2 255.255.255.0
+ip default-gateway 192.168.10.1
+interface range fa0/1-14
+ switchport mode access
+ no shutdown
 line console 0
 password cisco
 login
@@ -12,4 +18,6 @@ logging synchronous
 line vty 0 4
 password cisco
 login
-SW1/2(config)#banner motd $Onbevoegde toegang verboden$
+transport input ssh
+end
+SW-DEV(config)#banner motd $Onbevoegde toegang verboden$
