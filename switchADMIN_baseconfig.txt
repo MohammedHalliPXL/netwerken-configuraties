@@ -5,19 +5,19 @@ no ip domain-lookup
 service password-encryption
 enable secret class
 interface vlan 1
-ip address 192.168.20.2 255.255.255.0
-ipv6 address 2001:db8:20::2/64
-no shutdown
+ ip address 192.168.20.2 255.255.255.0
+ ipv6 address 2001:db8:20::2/64
+ no shutdown
 ip default-gateway 192.168.20.1
 interface range fa0/1-9
-switchport mode access
-no shutdown
+ switchport mode access
+ no shutdown
 line console 0
-password console
-login
+ password console
+ login
+username admin secret Admin123!
 line vty 0 4
-password cisco
-login
-transport input ssh
+ login local
+ transport input ssh
 end
 SW-ADMIN(config)#banner motd $Onbevoegde toegang verboden$
